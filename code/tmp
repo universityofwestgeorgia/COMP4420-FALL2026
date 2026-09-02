@@ -1,0 +1,5 @@
+Setting up Basic Repos Structure
+
+Added /code/ repos to place project project code files in a later stage.
+Added /documentation/ folder to house any docs related to project including the product backlog.
+Added a sample product backlog for a message board system (need to replace with project features).
