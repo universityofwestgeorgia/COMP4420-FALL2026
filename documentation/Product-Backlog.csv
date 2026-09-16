@@ -1,0 +1,13 @@
+Priority,As a...,I want to...,So that...
+1,Docker user,view all local containers,I can manage my containers from one place
+2,Docker user,view the status of each container,I know which containers are running or stopped
+3,Docker user,start a stopped container,I can run its application
+4,Docker user,stop a running container,I can safely halt its application
+5,Docker user,restart a container,I can quickly reload its application
+6,Docker user,view a container's logs,I can diagnose application problems
+7,Docker user,inspect a container's details,I can understand how it is configured
+8,Docker user,create a container from an image,I can deploy an application through the graphical interface
+9,Docker user,configure port mappings,I can access services running inside a container
+10,Docker user,configure environment variables,I can customize a container's behavior
+11,Docker user,configure volume mappings,I can persist or share container data
+12,Docker user,remove a container after confirmation,I can clean up containers I no longer need
