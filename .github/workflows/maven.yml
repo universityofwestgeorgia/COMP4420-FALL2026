@@ -1,13 +1,13 @@
 name: Maven (mvn) Verify Command
 
+permissions:
+  contents: read
+
 on:
   push:
-    branches:
-      - dev
+    branches: [ dev ]
   pull_request:
-    branches:
-      - dev
-      - release
+    branches: [ dev, release ]
 
 jobs:
   build:
@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1   # v7.0.1
     - name: Set up JDK 17
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        cache-dependency-path: "code/Grocery List JavaFX Sample/pom.xml"
     - name: Build with Maven
       run: |
         cd "code/Grocery List JavaFX Sample/"
