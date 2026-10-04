@@ -1,7 +1,7 @@
-package edu.westga.comp4420.grocery_list;
+package edu.westga.comp4420.containerdeck;
 
 /**
- * Entry point for the executable
+ * Starts Container Deck without extending the JavaFX Application class.
  *
  * @author	Comp 4420
  * @version Fall 2026

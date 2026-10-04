@@ -1,4 +1,4 @@
-package edu.westga.comp4420.grocery_list;
+package edu.westga.comp4420.containerdeck;
 
 import java.io.IOException;
 
@@ -9,15 +9,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
- * Entry point for the program
+ * Configures and starts the Container Deck JavaFX application.
  *
  * @author	Comp 4420
  * @version Fall 2026
  */
 public class Main extends Application {
-	public static final String WINDOW_TITLE = "JavaFX Sample";
+	public static final String WINDOW_TITLE = "Container Deck";
 	public static final String MAIN_WINDOW_RESOURCE = "view/codebehind/MainWindow.fxml";
-	public static final String ADD_ITEM_WINDOW_RESOURCE = "view/codebehind/AddItemWindow.fxml";
+	public static final String CONTAINER_DETAILS_WINDOW_RESOURCE = "view/codebehind/ContainerDetailsWindow.fxml";
 
 	/**
 	 * JavaFX entry point.

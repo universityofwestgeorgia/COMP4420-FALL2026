@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="guiPane" minHeight="240.0" minWidth="420.0" prefHeight="320.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.comp4420.containerdeck.view.codebehind.ContainerDetailsWindow">
+   <children>
+      <Label layoutX="24.0" layoutY="24.0" text="Container Details" />
+      <Label layoutX="24.0" layoutY="64.0" text="Select a container from the dashboard to inspect it." />
+   </children>
+</AnchorPane>
