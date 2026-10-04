@@ -2,16 +2,16 @@ Related User Story,Task Description,Initial Estimate
 all,Configure Maven and JavaFX base project,1.5
 ,Design the main dashboard layout,2
 view all local containers,Implement Docker CLI command runner,1.5
-,Create the Container model class,1.5
+,Create the Container model class,0.5
 ,Parse docker ps command output,1
 ,Implement the container table UI,2
 ,Add container list refresh behavior,0.5
-view container status,Display container status in the table,0.5
+view container status,Display container status in the table (when selected),0.5
 ,Handle Docker unavailable errors,1.5
 start a stopped container,Implement the Docker start command,0.5
-,Add the start container button and action,0.5
+,Add the start container button and action,1.5
 stop a running container,Implement the Docker stop command,0.5
-,Add the stop container button and action,0.5
+,Add the stop container button and action,1.5
 all,Write unit tests for Docker output parsing,1.5
 ,Perform manual testing and update documentation,1
-,Estimate Totals,16.5
+,Estimate Totals,17.5
