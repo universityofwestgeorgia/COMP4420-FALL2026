@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 
 <AnchorPane fx:id="guiPane" minHeight="360.0" minWidth="640.0" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.comp4420.containerdeck.view.codebehind.MainWindow">
    <children>
@@ -12,7 +14,14 @@
             <Font name="Charter Bold" size="26.0" />
          </font>
       </Label>
-      <Label contentDisplay="CENTER" layoutX="340.0" layoutY="208.0" text="Local containers..." textAlignment="CENTER" />
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="275.0" mnemonicParsing="false" onAction="#openContainerDetails" text="Open Container Details" textAlignment="CENTER" />
+      <TableView fx:id="containerTable" layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="700.0">
+         <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" />
+            <TableColumn fx:id="imageColumn" prefWidth="180.0" text="Image" />
+            <TableColumn fx:id="statusColumn" prefWidth="240.0" text="Status" />
+            <TableColumn fx:id="stateColumn" prefWidth="125.0" text="State" />
+         </columns>
+      </TableView>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="410.0" mnemonicParsing="false" onAction="#openContainerDetails" text="Open Container Details" textAlignment="CENTER" />
    </children>
 </AnchorPane>
