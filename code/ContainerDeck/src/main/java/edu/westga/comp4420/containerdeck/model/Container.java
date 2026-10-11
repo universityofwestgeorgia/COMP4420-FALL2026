@@ -79,6 +79,16 @@ public final class Container {
 		return this.state;
 	}
 
+	/**
+	 * Validates and returns a required text property.
+	 *
+	 * @precondition propertyName != null
+	 * @postcondition the returned value is neither null nor blank
+	 *
+	 * @param value the property value to validate
+	 * @param propertyName the property name used in the error message
+	 * @return the validated value
+	 */
 	private static String requireText(String value, String propertyName) {
 		if (value == null || value.isBlank()) {
 			throw new IllegalArgumentException("Container " + propertyName + " must not be blank.");

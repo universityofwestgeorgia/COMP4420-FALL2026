@@ -23,7 +23,7 @@ import edu.westga.comp4420.containerdeck.model.DockerCommandRunner;
 /**
  * Handles presentation behavior for the Container Deck dashboard.
  *
- * @author	Comp 4420
+ * @author Leo Gregori
  * @version Fall 2026
  */
 public class MainWindow {
@@ -34,6 +34,11 @@ public class MainWindow {
 	@FXML private TableColumn<Container, String> statusColumn;
 	@FXML private TableColumn<Container, String> stateColumn;
 
+	/**
+	 * Returns the selected container or displays a warning when none is selected.
+	 *
+	 * @return the selected container, or null if no container is selected
+	 */
 	private Container getSelectedContainer() {
 		Container selectedContainer = this.containerTable
 				.getSelectionModel()
@@ -49,6 +54,11 @@ public class MainWindow {
 		return selectedContainer;
 	}
 
+	/**
+	 * Opens the details window for the selected container.
+	 *
+	 * @param event the button activation event
+	 */
 	@FXML
 	void openContainerDetails(ActionEvent event) {
 		Container selectedContainer = this.getSelectedContainer();
@@ -77,6 +87,9 @@ public class MainWindow {
 		}
 	}
 
+	/**
+	 * Starts the selected container and reloads the table.
+	 */
 	@FXML
 	void startSelectedContainer() {
 		Container selectedContainer = this.getSelectedContainer();
@@ -105,11 +118,17 @@ public class MainWindow {
 		}
 	}
 
+	/**
+	 * Reloads the container table from Docker.
+	 */
 	@FXML
 	void refreshContainers() {
 		this.loadContainers();
 	}
 
+	/**
+	 * Retrieves the current local containers and replaces the table contents.
+	 */
 	private void loadContainers() {
 		DockerCommandRunner runner = new DockerCommandRunner();
 
@@ -130,6 +149,9 @@ public class MainWindow {
 		}
 	}
 
+	/**
+	 * Stops the selected container and reloads the table.
+	 */
 	@FXML
 	void stopSelectedContainer() {
 		Container selectedContainer = this.getSelectedContainer();
@@ -158,6 +180,9 @@ public class MainWindow {
 		}
 	}
 
+	/**
+	 * Configures the table columns and loads the initial container list.
+	 */
 	@FXML
 	void initialize() {
 		this.nameColumn.setCellValueFactory(

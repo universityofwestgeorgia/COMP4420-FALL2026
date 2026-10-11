@@ -9,7 +9,7 @@ import edu.westga.comp4420.containerdeck.model.Container;
 /**
  * Handles presentation behavior for the container details window.
  *
- * @author	Comp 4420
+ * @author Leo Gregori
  * @version Fall 2026
  */
 public class ContainerDetailsWindow {
@@ -23,6 +23,9 @@ public class ContainerDetailsWindow {
 	/**
 	 * Displays the selected container information.
 	 *
+	 * @precondition container != null
+	 * @postcondition all detail labels display the supplied container's values
+	 *
 	 * @param container the container selected on the dashboard
 	 */
 	public void displayContainer(Container container) {
@@ -33,6 +36,9 @@ public class ContainerDetailsWindow {
 		this.identifierLabel.setText(container.getIdentifier());
 	}
 
+	/**
+	 * Verifies that the FXML root pane was injected.
+	 */
 	@FXML
 	void initialize() {
 		assert this.guiPane != null : "fx:id=\"guiPane\" was not injected: check ContainerDetailsWindow.fxml.";
