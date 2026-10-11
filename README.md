@@ -1,5 +1,6 @@
 # Container Deck
 
+[![Maven Verify](https://github.com/universityofwestgeorgia/COMP4420-FALL2026/actions/workflows/maven.yml/badge.svg?branch=dev)](https://github.com/universityofwestgeorgia/COMP4420-FALL2026/actions/workflows/maven.yml)
 ![Java 17+](https://img.shields.io/badge/Java-17%2B-orange?logo=openjdk&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-build-C71A36?logo=apachemaven&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-required-2496ED?logo=docker&logoColor=white)
