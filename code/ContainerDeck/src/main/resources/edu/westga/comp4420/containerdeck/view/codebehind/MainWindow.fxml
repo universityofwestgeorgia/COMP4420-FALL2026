@@ -22,6 +22,24 @@
             <TableColumn fx:id="stateColumn" prefWidth="125.0" text="State" />
          </columns>
       </TableView>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="410.0" mnemonicParsing="false" onAction="#openContainerDetails" text="Open Container Details" textAlignment="CENTER" />
+      <Button layoutX="155.0" layoutY="410.0"
+            mnemonicParsing="false"
+            onAction="#startSelectedContainer"
+            text="Start" />
+
+      <Button layoutX="235.0" layoutY="410.0"
+            mnemonicParsing="false"
+            onAction="#stopSelectedContainer"
+            text="Stop" />
+
+      <Button layoutX="315.0" layoutY="410.0"
+            mnemonicParsing="false"
+            onAction="#refreshContainers"
+            text="Refresh" />
+
+      <Button layoutX="415.0" layoutY="410.0"
+            mnemonicParsing="false"
+            onAction="#openContainerDetails"
+            text="Open Container Details" />
    </children>
 </AnchorPane>
