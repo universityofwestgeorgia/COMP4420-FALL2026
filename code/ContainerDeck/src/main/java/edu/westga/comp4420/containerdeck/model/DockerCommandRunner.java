@@ -12,11 +12,13 @@ import java.util.List;
  */
 public class DockerCommandRunner {
     private static final String INVALID_IDENTIFIER_MESSAGE = "Container identifier must not be blank.";
-    private final List<String> command;
+    private final List<String> listContainersCommand;
     private final String dockerExecutable;
 
     /**
      * Creates a runner configured to list Docker containers.
+     *
+     * @postcondition the runner uses the Docker executable to list all containers
      */
     public DockerCommandRunner() {
         this(List.of(
@@ -31,10 +33,13 @@ public class DockerCommandRunner {
     /**
      * Creates a runner using the specified command.
      *
+     * @precondition command must not be null or empty
+     * @postcondition the runner uses the supplied command to list containers
+     *
      * @param command the command and its arguments
      */
     public DockerCommandRunner(List<String> command) {
-        this.command = command;
+        this.listContainersCommand = command;
         this.dockerExecutable = command.get(0);
     }
 
@@ -46,13 +51,14 @@ public class DockerCommandRunner {
      * @throws InterruptedException if the command execution is interrupted
      */
     public String listContainers() throws IOException, InterruptedException {
-        return this.executeCommand(this.command);
+        return this.executeCommand(this.listContainersCommand);
     }
 
     /**
      * Starts the Docker container with the specified identifier.
      *
      * @precondition identifier must not be null or blank
+     * @postcondition the identified container has received a successful start command
      *
      * @param identifier the identifier of the container to start
      * @throws IOException if the Docker command cannot be executed
@@ -75,6 +81,7 @@ public class DockerCommandRunner {
      * Stops the Docker container with the specified identifier.
      *
      * @precondition identifier must not be null or blank
+     * @postcondition the identified container has received a successful stop command
      *
      * @param identifier the identifier of the container to stop
      * @throws IOException if the Docker command cannot be executed
@@ -93,6 +100,17 @@ public class DockerCommandRunner {
         ));
     }
 
+    /**
+     * Executes a command and returns its combined standard and error output.
+     *
+     * @precondition command must not be null or empty
+     * @postcondition the command completed with an exit code of zero
+     *
+     * @param command the executable and its arguments
+     * @return the text produced by the command
+     * @throws IOException if the command cannot run or returns a nonzero exit code
+     * @throws InterruptedException if command execution is interrupted
+     */
     private String executeCommand(List<String> command)
         throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder(command);
@@ -118,6 +136,8 @@ public class DockerCommandRunner {
 
     /**
      * Retrieves and parses all local Docker containers.
+     *
+     * @postcondition the returned list represents the current Docker command output
      *
      * @return the local Docker containers
      * @throws IOException if the Docker command cannot be executed

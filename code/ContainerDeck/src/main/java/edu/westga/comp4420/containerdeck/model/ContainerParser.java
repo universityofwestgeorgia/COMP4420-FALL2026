@@ -38,6 +38,15 @@ public final class ContainerParser {
 		return Collections.unmodifiableList(containers);
 	}
 
+	/**
+	 * Parses one tab-separated line of Docker container information.
+	 *
+	 * @precondition line contains exactly five tab-separated columns
+	 * @postcondition the returned container contains the values from the line
+	 *
+	 * @param line the formatted Docker output line
+	 * @return the container represented by the line
+	 */
 	private Container parseLine(String line) {
 		String[] columns = line.split("\\t", -1);
 		if (columns.length != EXPECTED_COLUMN_COUNT) {

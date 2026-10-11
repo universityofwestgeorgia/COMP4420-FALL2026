@@ -11,12 +11,15 @@ import javafx.scene.Scene;
 /**
  * Configures and starts the Container Deck JavaFX application.
  *
- * @author	Comp 4420
+ * @author Leo Gregori
  * @version Fall 2026
  */
 public class Main extends Application {
+	/** The title displayed by the primary application window. */
 	public static final String WINDOW_TITLE = "Container Deck";
+	/** The location of the dashboard FXML resource. */
 	public static final String MAIN_WINDOW_RESOURCE = "view/codebehind/MainWindow.fxml";
+	/** The location of the container details FXML resource. */
 	public static final String CONTAINER_DETAILS_WINDOW_RESOURCE = "view/codebehind/ContainerDetailsWindow.fxml";
 
 	/**
@@ -25,7 +28,7 @@ public class Main extends Application {
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @throws IOException
+	 * @throws IOException if the dashboard FXML resource cannot be loaded
 	 */
 	@Override
 	public void start(Stage primaryStage) throws IOException {
