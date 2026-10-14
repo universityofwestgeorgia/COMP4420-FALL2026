@@ -1,0 +1,31 @@
+Related User Story,Task Description,Initial Estimate,Amount Remaining After…,,,
+,,,Week 1,Week 2,Week 3,Week 4
+all,Configure Maven and JavaFX base project,1.5,1.5,0,0,0
+,Design the main dashboard layout,2,2,0,0,0
+view all local containers,Implement Docker CLI command runner,1.5,1.5,1.5,0,0
+,Create the Container model class,0.5,0.5,0,0,0
+,Parse docker ps command output,1,1,0,0,0
+,Implement the container table UI,2,2,2,0,0
+,Add container list refresh behavior,0.5,0.5,0.5,0.5,0
+view container status,Display container status in the table (when selected),0.5,0.5,0.5,0.5,0
+,Handle Docker unavailable errors,1.5,1.5,1.5,0,0
+start a stopped container,Implement the Docker start command,0.5,0.5,0.5,0.5,0
+,Add the start container button and action,1.5,1.5,1.5,1.5,0
+stop a running container,Implement the Docker stop command,0.5,0.5,0.5,0.5,0
+,Add the stop container button and action,1.5,1.5,1.5,1.5,0
+all,Write unit tests for Docker output parsing,1.5,1.5,0,0,0
+,Perform manual testing and update documentation,1,1,1,1,0
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,Estimate Totals,17.5,17.5,11,6,0

@@ -22,8 +22,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-        cache-dependency-path: "code/Grocery List JavaFX Sample/pom.xml"
+        cache-dependency-path: "code/ContainerDeck/pom.xml"
     - name: Build with Maven
       run: |
-        cd "code/Grocery List JavaFX Sample/"
+        cd "code/ContainerDeck/"
         mvn --batch-mode verify

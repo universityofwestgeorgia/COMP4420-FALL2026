@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="guiPane" minHeight="240.0" minWidth="420.0" prefHeight="320.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.comp4420.containerdeck.view.codebehind.ContainerDetailsWindow">
+   <children>
+      <Label layoutX="213.0" layoutY="32.0" text="Container Details" />
+
+      <Label layoutX="60.0" layoutY="80.0" text="Name:" />
+      <Label fx:id="nameLabel" layoutX="150.0" layoutY="80.0" text="-" />
+
+      <Label layoutX="60.0" layoutY="120.0" text="Image:" />
+      <Label fx:id="imageLabel" layoutX="150.0" layoutY="120.0" text="-" />
+
+      <Label layoutX="60.0" layoutY="160.0" text="Status:" />
+      <Label fx:id="statusLabel" layoutX="150.0" layoutY="160.0" text="-" />
+
+      <Label layoutX="60.0" layoutY="200.0" text="State:" />
+      <Label fx:id="stateLabel" layoutX="150.0" layoutY="200.0" text="-" />
+
+      <Label layoutX="60.0" layoutY="240.0" text="ID:" />
+      <Label fx:id="identifierLabel" layoutX="150.0" layoutY="240.0" text="-" />
+   </children>
+</AnchorPane>
