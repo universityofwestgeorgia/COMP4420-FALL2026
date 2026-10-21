@@ -1,0 +1,10 @@
+services:
+  sqlite-web:
+    image: coleifer/sqlite-web
+    container_name: sqlite-web
+    ports:
+      - "8082:8080"
+    volumes:
+      - /Users/leo/Desktop/Classes/DevOps/COMP4420-FALL2026/app:/data
+    command: sqlite_web -p 8080 -H 0.0.0.0 /data/todo-store.db
+    restart: unless-stopped
