@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Comp 4420 TODO List App</title>
+    <meta name="description" content="Sample DB Connected Application for Comp 4420">
+    <meta name="author" content="Comp 4420">
+    <!-- Bootstrap CSS Reset -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Content -->
+    <div class="container">
+        <h1>TODO</h1>
+        <ul>
+            <!-- Loop through the todoList passed from app.js -->
+            <% data.forEach(function(todoItem) { %>
+                <li>
+                    <%= todoItem.priority %> - <%= todoItem.name %> - <%= todoItem.description %>
+                </li>
+            <% }); %>
+        </ul>
+
+        <h1>Add new TODO</h1>
+        <form action="/api/add_todo" method="POST">
+            Name: <input type="text" name="name" required><br>
+            Description: <input type="text" name="description" required><br>
+            Priority: <select name="priority" id="number-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+            <button type="submit">Add TODO</button>
+        </form>
+    </div>
+</body>
+
+</html>
