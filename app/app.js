@@ -1,13 +1,10 @@
 //Setup sqlite to manage db connection/query
 const sqlite3 = require('sqlite3').verbose();
+const { authenticateUser, createAccount } = require('./auth');
 
 //Define basic SQL query to fetch all TODO items
 const fetchTodoQuery = 'SELECT * FROM TODO';
 const insertTodoQuery = 'INSERT INTO TODO (Name, Description, Priority) VALUES (?, ?, ?)';
-//Define basic SQL query to fetch all users items
-const fetchUserQuery = 'SELECT * FROM USERS';
-const insertUserQuery = 'INSERT INTO USERS (username, password) VALUES (?, ?)';
-const loginUserQuery = 'SELECT * FROM USERS WHERE username = ? AND password = ?';
 
 //Define function to connect to DB
 const connectToDB = function () {
@@ -45,36 +42,6 @@ const insertTodo = async (db, sql, params) => {
 			console.log('priority:', params[2]);
 			console.log('---');
 			resolve();
-		});
-	});
-};
-
-//Define function to insert into DB - promise supports synchronous resolution
-const insertUser = async (db, sql, params) => {
-	return new Promise((resolve, reject) => {
-		db.run(sql, params, function (err) {
-			if (err) {
-				reject(err);
-				return;
-			}
-			console.log('Inserted USER with the following information.');
-			console.log('username:', params[0]);
-			console.log('password:', params[1]);
-			console.log('---');
-			resolve();
-		});
-	});
-};
-
-const fetchUser = async (db, sql, params) => {
-	return new Promise((resolve, reject) => {
-		db.get(sql, params, (err, row) => {
-			if (err) {
-				reject(err);
-				return;
-			}
-
-			resolve(row);
 		});
 	});
 };
@@ -170,12 +137,10 @@ app.post('/login', async function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 
-	const params = [username, password];
-
 	const db = new connectToDB();
 
 	try {
-		const user = await fetchUser(db, loginUserQuery, params);
+		const user = await authenticateUser(db, username, password);
 
 		if (user) {
 			console.log('Login successful for:', username);
@@ -205,8 +170,6 @@ app.get('/create', function(req, res) {
 	});
 });
 
-const checkUserQuery = 'SELECT * FROM USERS WHERE LOWER(username) = LOWER(?)';
-
 // route to process account creation form
 app.post('/create', async function(req, res) {
 
@@ -216,10 +179,9 @@ app.post('/create', async function(req, res) {
 	const db = new connectToDB();
 
 	try {
-		// Check if username already exists
-		const existingUser = await fetchUser(db, checkUserQuery, [username]);
+		const created = await createAccount(db, username, password);
 
-		if (existingUser) {
+		if (!created) {
 			console.log('Account creation failed. Username already exists:', username);
 
 			res.render('page/create', {
@@ -228,11 +190,6 @@ app.post('/create', async function(req, res) {
 
 			return;
 		}
-
-		// Insert new user
-		const params = [username, password];
-
-		await insertUser(db, insertUserQuery, params);
 
 		console.log('Account created for:', username);
 
