@@ -33,3 +33,6 @@ Thumbs.db
 info.txt
 
 *.temp
+
+node_modules/
+npm-debug.log*
