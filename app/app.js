@@ -86,7 +86,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
 
 // route to index page
-app.get('/', async function (req, res) {
+app.get('/', (req, res) => res.redirect('/login'));
+
+// route to todos page
+app.get('/todos', async function (req, res) {
 
 	console.log("Running fetch")
 	const db = new connectToDB();
